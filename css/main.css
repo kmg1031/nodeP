@@ -1,0 +1,45 @@
+*{
+    text-align: center;
+}
+a{
+    color: black;
+    text-decoration : none;
+}
+header{
+    position: fixed;
+    display: inherit;
+    height: 100px;
+    width: 100%;
+    
+}
+section{
+    padding-top: 100px;
+}
+
+ol, ul{
+    list-style: none;
+}
+/* detail */
+
+.contentBox{
+    margin-top: 50px;
+}
+
+/* 잠깐만 */
+
+#category li{
+    display: inline-block;
+    margin: 0 15px;
+}
+
+#subMenu li{
+    display: inline-block;
+    margin: 0 15px;
+
+}
+
+#contentBox2{
+    display: inline-block;
+    width : 50%;
+    border: black solid 1px;
+}

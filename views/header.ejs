@@ -1,0 +1,23 @@
+<header>
+    <div id="title">
+        <h1><a href="/">HEADERRRRRRRRRRR</a></h1>
+    </div>
+    <nav>
+        <div id="category">
+            <ul>
+                <% if(locals.categoryList){ %>
+                    <% for(var i=0;i < categoryList.length;i++){ %>
+                        <li><a href="/<%=categoryList[i]%>"><%=categoryList[i]%></a></li>
+                    <% } %>
+                <% } %>
+            </ul>
+        </div>
+        <div id="subMenu">
+            <ul>
+                <li><a href="/fileCheck">fileCheck</a></li>
+                <li><a href="/r1/create">create</a></li>
+                <li><a href="/r1/list">list</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>

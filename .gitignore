@@ -1,1 +1,6 @@
 data/
+reference/
+nodeJS/test.js
+nodeJS/startscript.js
+views/test2.ejs
+node_modules/

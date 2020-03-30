@@ -1,0 +1,20 @@
+<section>
+    <div class="contentBox" id="contentBox1">
+        <p> 이제 뷰 좀 써보네</p>
+        <p> express 개꿀이네</p>
+    </div>
+    <div class="contentBox" id="contentBox2">
+        <% if(locals.memoListData){ %>
+            <ul>
+                <% for(var i=0;i < memoListData.length;i++){ %>
+                    <li><a href="/r1/update/<%=memoListData[i]%>"><%=memoListData[i]%></a></li>
+                <% } %>
+            </ul>
+        <% } %>
+    </div>
+    <div class="contentBox" id="contentBox3">
+        <% if(locals.memoListData){ %>
+
+        <% } %>
+    </div>
+</section>
