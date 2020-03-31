@@ -1,6 +1,5 @@
 data/
 reference/
-nodeJS/test.js
-nodeJS/startscript.js
+test.js
 views/test2.ejs
 node_modules/

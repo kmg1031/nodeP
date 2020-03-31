@@ -1,0 +1,36 @@
+[33mcommit a579cdd739ae4fe93e928886ce9c3a41d5266f8c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: kmg1031 <vhehrla333@gmail.com>
+Date:   Tue Mar 31 00:30:39 2020 +0900
+
+    express 맛보기
+
+[33mcommit c6aa210d893d50bfbf2731ba7bdda452c7de3a85[m
+Author: kmg1031 <vhehrla333@gmail.com>
+Date:   Thu Mar 26 21:13:43 2020 +0900
+
+    파일제외2
+
+[33mcommit c3bfb25f075d40db10e970cc25b9705969e35463[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: kmg1031 <vhehrla333@gmail.com>
+Date:   Thu Mar 26 21:10:48 2020 +0900
+
+    제외폴더 설정
+
+[33mcommit a20b572659d16889f949c3c32f6dd0bb6a09d884[m
+Merge: 336ab6b cecbad3
+Author: kmg1031 <vhehrla333@gmail.com>
+Date:   Wed Mar 25 01:20:42 2020 +0900
+
+    Merge branch 'master' of https://github.com/kmg1031/nodeP
+
+[33mcommit 336ab6b8adf3eef5992397a13a62cb36c64cc211[m
+Author: kmg1031 <vhehrla333@gmail.com>
+Date:   Wed Mar 25 01:14:42 2020 +0900
+
+    startP
+
+[33mcommit cecbad3a9076515ee8738eb200e43ebd284a7f4d[m
+Author: kmg1031 <46431324+kmg1031@users.noreply.github.com>
+Date:   Wed Mar 25 01:11:24 2020 +0900
+
+    Initial commit

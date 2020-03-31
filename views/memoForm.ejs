@@ -11,7 +11,7 @@
     <section>
         <div class="contentBox" id="contentBox1">
             <% if(mode == "add"){ %>
-                <form action="/r1/createMemo" method="post">
+                <form action="/memo/createMemo" method="post">
                     <table>
                         <span>title</span>
                         <div>
@@ -27,7 +27,7 @@
                     </table>
                 </form>
             <% }else{ %>
-                <form action="/r1/updateMemo" method="post">
+                <form action="/memo/updateMemo" method="post">
                     <table>
                         <div>
                             <input type="hidden" name="id" placeholder="title" value="<%=title%>">
@@ -45,7 +45,7 @@
                         </div>
                     </table>
                 </form>
-                <form action="/r1/deleteMemo" method="post">
+                <form action="/memo/deleteMemo" method="post">
                     <input type="hidden" name="title" placeholder="title" value="<%=title%>">
                     <button type="submit" id="del_memo">삭제</button>
                 </form>

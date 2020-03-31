@@ -11,6 +11,12 @@ module.exports = function(app){
 
     var router = express.Router();
 
+    router.use(function(req,res,next){
+        res.locals.subList = 'category/memo/home.ejs';
+        next();
+    });
+
+    
     // create form
     router.use('/create', function(req,res){
         res.render('memoForm',{mode : "add"});
@@ -35,7 +41,6 @@ module.exports = function(app){
     // list form
     router.use('/list', function(req,res){
         fs.readdir('data', 'utf8', (err, memoListData) => {
-            console.log(memoListData);
            res.render('home',{
                 memoListData : memoListData
            })
@@ -45,5 +50,11 @@ module.exports = function(app){
     router.use('/deleteMemo', function(req,res){
         memoController.delete(req,res);
     });
+
+    // memo home form
+    router.use('/', function(req,res){
+        res.render('home',{});
+    });
+
     return router;
 }

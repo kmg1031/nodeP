@@ -7,6 +7,10 @@ var app = express();
 app.use(express.static('/views/'));
 app.use('/css', express.static(__dirname + '/css'));
 
+
+
+
+
 app.use("/favicon.ico",function(req,res){
 });
 
@@ -14,16 +18,25 @@ app.use("/favicon.ico",function(req,res){
 // 메뉴 정보
 app.use((req,res,next)=>{
     console.log(req.originalUrl);
-    fs.readdir('category', 'utf8', (err, categoryList) => {   
+    fs.readdir('views/category', 'utf8', (err, categoryList) => {   
         res.locals.categoryList = categoryList;
         next();
     });
 });
 
-// router
-const memoRouter = require(`${__dirname}/nodeJS/routes/memoRouter.js`)(app);
-app.use('/r1', memoRouter);
 
+
+
+
+
+
+
+// router
+const memoRouter = require(`${__dirname}/routes/memoRouter.js`)(app);
+app.use('/memo', memoRouter);
+
+const canvasRouter = require(`${__dirname}/routes/canvasRouter.js`)(app);
+app.use('/canvas', canvasRouter);
 
 
 app.use("/fileCheckAction/:filePath",function(req,res){
@@ -33,6 +46,13 @@ app.use("/fileCheckAction/:filePath",function(req,res){
 app.use("/",function(req,res){
     res.render('home',{});
 });
+
+
+
+
+
+
+
 
 // booting
 var port = 8080;

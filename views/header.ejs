@@ -13,11 +13,9 @@
             </ul>
         </div>
         <div id="subMenu">
-            <ul>
-                <li><a href="/fileCheck">fileCheck</a></li>
-                <li><a href="/r1/create">create</a></li>
-                <li><a href="/r1/list">list</a></li>
-            </ul>
+            <% if(locals.subList){ %>
+                <%- include(subList) -%>
+            <% } %>
         </div>
     </nav>
 </header>
