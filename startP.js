@@ -2,12 +2,13 @@
 const fs = require('fs');
 const express = require('express');
 
+const conn = require(`${__dirname}/lib/connect`);
+
 var app = express();
+
 
 app.use(express.static('/views/'));
 app.use('/css', express.static(__dirname + '/css'));
-
-
 
 
 
@@ -38,10 +39,17 @@ app.use('/memo', memoRouter);
 const canvasRouter = require(`${__dirname}/routes/canvasRouter.js`)(app);
 app.use('/canvas', canvasRouter);
 
+const gameRouter = require(`${__dirname}/routes/gameRouter.js`)(app);
+app.use('/game', gameRouter);
+
+
+
 
 app.use("/fileCheckAction/:filePath",function(req,res){
 
 });
+
+
 
 app.use("/",function(req,res){
     res.render('home',{});

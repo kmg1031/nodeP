@@ -3,3 +3,5 @@ reference/
 test.js
 views/test2.ejs
 node_modules/
+game/
+gameRouter.js

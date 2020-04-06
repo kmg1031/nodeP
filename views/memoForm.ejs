@@ -30,7 +30,7 @@
                 <form action="/memo/updateMemo" method="post">
                     <table>
                         <div>
-                            <input type="hidden" name="id" placeholder="title" value="<%=title%>">
+                            <input type="hidden" name="no" value="<%=no%>">
                         </div>
                         <span>title</span>
                         <div>
@@ -40,13 +40,14 @@
                         <div>
                             <textarea name="memo" cols="30" rows="10"><%=memo%></textarea>
                         </div>
+                        <div><input type="text" value="<%=time%>" readonly></div>
                         <div>
                         <button type="submit" id="up_memo">수정</button>
                         </div>
                     </table>
                 </form>
                 <form action="/memo/deleteMemo" method="post">
-                    <input type="hidden" name="title" placeholder="title" value="<%=title%>">
+                    <input type="hidden" name="no" value="<%=no%>">
                     <button type="submit" id="del_memo">삭제</button>
                 </form>
             <% } %>

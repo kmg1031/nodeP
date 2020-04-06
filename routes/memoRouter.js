@@ -26,13 +26,8 @@ module.exports = function(app){
         memoController.create(req,res);
     });
     // update form
-    router.use('/update/:title', function(req,res){
-        var memo = fs.readFileSync(`data/${req.params.title}`,'utf8');
-        res.render('memoForm',{
-            mode : "edit",
-            title : req.params.title,
-            memo : memo
-        });
+    router.use('/update/:no', function(req,res){
+        memoController.oneSelect(req,res);
     });
     // update action
     router.use('/updateMemo', function(req,res){
@@ -40,11 +35,7 @@ module.exports = function(app){
     });
     // list form
     router.use('/list', function(req,res){
-        fs.readdir('data', 'utf8', (err, memoListData) => {
-           res.render('home',{
-                memoListData : memoListData
-           })
-        });
+        memoController.select(req,res);
     });
     // delete action
     router.use('/deleteMemo', function(req,res){
