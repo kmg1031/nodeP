@@ -1,0 +1,43 @@
+<% if(locals.mode){ %>
+    <% if(mode == "add"){ %>
+        <form action="/memo/createMemo" method="post">
+            <table>
+                <span>title</span>
+                <div>
+                    <input type="text" name="title" placeholder="title">
+                </div>
+                <span>memo</span>
+                <div>
+                    <textarea name="memo" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <button type="submit" id="add_memo">저장</button>
+                </div>
+            </table>
+        </form>
+    <% }else{ %>
+        <form action="/memo/updateMemo" method="post">
+            <table>
+                <div>
+                    <input type="hidden" name="no" value="<%=no%>">
+                </div>
+                <span>title</span>
+                <div>
+                    <input type="text" name="title" placeholder="title" value="<%=title%>">
+                </div>
+                <span>memo</span>
+                <div>
+                    <textarea name="memo" cols="30" rows="10"><%=memo%></textarea>
+                </div>
+                <div><input type="text" value="<%=time%>" readonly></div>
+                <div>
+                <button type="submit" id="up_memo">수정</button>
+                </div>
+            </table>
+        </form>
+        <form action="/memo/deleteMemo" method="post">
+            <input type="hidden" name="no" value="<%=no%>">
+            <button type="submit" id="del_memo">삭제</button>
+        </form>
+    <% } %>
+<% } %>

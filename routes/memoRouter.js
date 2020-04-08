@@ -12,14 +12,17 @@ module.exports = function(app){
     var router = express.Router();
 
     router.use(function(req,res,next){
-        res.locals.subList = 'category/memo/home.ejs';
+        res.locals.subCategory = 'category/memo/subCategory.ejs';
         next();
     });
 
     
     // create form
     router.use('/create', function(req,res){
-        res.render('memoForm',{mode : "add"});
+        res.render('home',{
+            mode : "add",
+            sectionPath : 'category/memo/memoForm.ejs'
+        });
     });
     // create action
     router.use('/createMemo', function(req,res){

@@ -28,10 +28,6 @@ app.use((req,res,next)=>{
 
 
 
-
-
-
-
 // router
 const memoRouter = require(`${__dirname}/routes/memoRouter.js`)(app);
 app.use('/memo', memoRouter);
@@ -42,6 +38,8 @@ app.use('/canvas', canvasRouter);
 const gameRouter = require(`${__dirname}/routes/gameRouter.js`)(app);
 app.use('/game', gameRouter);
 
+const authRouter = require(`${__dirname}/routes/authRouter.js`)(app);
+app.use('/auth', authRouter);
 
 
 

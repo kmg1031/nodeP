@@ -1,0 +1,35 @@
+<div>
+    <div>
+        <span>auth insert</span>
+        <form action="/auth/insert" method="GET">
+            <div><span>bin</span><input type="text" name="seq"></div>
+            <div><span>index</span><input type="text" name="index"></div>
+            <div><input type="submit" value="저장"></div>
+        </form>
+    </div>
+    <div>
+        <span>auth delete</span>
+        <form action="/auth/delete" method="GET">
+            <div><span>bin</span><input type="text" name="seq"></div>
+            <div><span>index</span><input type="text" name="index"></div>
+            <div><input type="submit" value="저장"></div>
+        </form>
+    </div>
+    <div>
+        <span>auth search</span>
+        <form action="/auth/select" method="GET">
+            <div><span>seq</span><input type="text" name="seq"></div>
+            <div><input type="submit" value="검색"></div>
+        </form>
+    </div>
+    <div>
+    <% if(locals.result){ %>
+        <% for(var i=0;i<result.length;i++){ %>
+            <div>
+                <p><%=result[i].seq%>  :  <%=result[i].auth1%></p>
+                <p><%=(result[i].auth1).toString(2)%></p>
+            </div>
+        <% } %>
+    <% } %>
+    </div>   
+</div>

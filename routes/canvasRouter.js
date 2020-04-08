@@ -11,9 +11,12 @@ module.exports = function(app){
 
     router.use((req,res,next)=>{
         console.log('canvas');
-        res.locals.sectionPath = 'category/canvas/canvasHome.ejs';
+        res.locals.subCategory = 'category/canvas/subCategory.ejs';
+        res.locals.sectionPath = 'category/canvas/home.ejs';
         next();
     });
+
+
 
     router.use('/',(req,res)=>{
         console.log('convasHome');

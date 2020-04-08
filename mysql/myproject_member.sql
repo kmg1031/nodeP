@@ -1,20 +1,20 @@
 use mysite;
 
 // member
-select * from member;
-
-insert into member value(default,'id','title','memo');
-
-update member set ~ {WHERE condition}
-
-DELETE  FROM member {WHERE condition}
-
+seq         int(11)
+id          varchar(20)
+password    varchar(42)
+name        varchar(20)
 
 // memo 
-select * from memo;
+no          int(11)
+userId      varchar(20)
+title       varchar(100)
+memo        varchar(500)
+createtime  datetime
 
-insert into memo value(default,'id','title','memo');
 
-update memo set ~ {WHERE condition}
 
-DELETE  FROM memo {WHERE condition}
+// auth
+seq     - int(11)
+auth1   - int(11)
