@@ -18,10 +18,16 @@ app.use("/favicon.ico",function(req,res){
 // 공통 로직
 // 메뉴 정보
 app.use((req,res,next)=>{
-    console.log(req.originalUrl);
-    fs.readdir('views/category', 'utf8', (err, categoryList) => {   
+    var mainCat = req.originalUrl.split('/')[1];
+    console.log(mainCat);
+    fs.readdir('views/category', 'utf8', (err, categoryList) => {
         res.locals.categoryList = categoryList;
-        next();
+        fs.stat(`views/category/${mainCat}/subCategory.ejs`,(err)=>{
+            if(!err){
+                res.locals.subCategory = `category/${mainCat}/subCategory.ejs`;
+            }
+            next();
+        });
     });
 });
 

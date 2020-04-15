@@ -6,13 +6,6 @@
         <% if(locals.sectionPath){ %>
             <%- include(sectionPath) -%>
         <% } %>
-        <% if(locals.memoListData){ %>
-            <ul>
-                <% for(var i=0;i < memoListData.length;i++){ %>
-                    <li><a href="/memo/update/<%=memoListData[i].no%>"><%=memoListData[i].title%></a></li>
-                <% } %>
-            </ul>
-        <% } %>
     </div>
     <div class="contentBox" id="contentBox3">
         

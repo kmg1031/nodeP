@@ -12,7 +12,7 @@ module.exports = function(app){
     var router = express.Router();
 
     router.use(function(req,res,next){
-        res.locals.subCategory = 'category/memo/subCategory.ejs';
+        // res.locals.subCategory = 'category/memo/subCategory.ejs';
         next();
     });
 
