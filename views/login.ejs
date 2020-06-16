@@ -1,0 +1,58 @@
+<style>
+    .form-signin {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;
+}
+</style>
+<form class="form-signin" action="/login/signUp" id="loginFrm" method="POST">
+
+    <div class="form-label-group">
+        <input type="text" id="userId" name="userId" class="form-control" placeholder="ID" required="" autofocus="">
+        <label for="inputEmail">Email address</label>
+    </div>
+
+    <div class="form-label-group">
+        <input type="password" id="userPw"  name="userPw" class="form-control" placeholder="Password" required="">
+        <label for="inputPassword">Password</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
+
+<script>
+    $('#loginFrm').on('submit',function(e){
+        e.preventDefault();
+
+        if($('#userId').val() == ''){
+            alert('아이디를 입력해주세요.');
+        }
+        if($('#userPw').val() == ''){
+            alert('비밀번호를 입력해주세요.');
+        }
+
+        $.ajax({
+            url: 'login/signUp',
+            type: 'POST',
+            dataType : 'json',
+            data: {
+                'userId' : $('#userId').val(),
+                'userPw' : $('#userPw').val()
+            },
+            success: function(result) {
+
+                if(result.result == 'success'){
+                    alert('로그인 성공!');
+                    window.location.href = '/';
+                }else{
+                    if(result.code == 'usernull'){
+                        alert('존재하지 않는 사용자입니다.');
+                    }else if(result.code == 'pwerr'){
+                        alert('비밀번호를 확인해 주세요');
+                    }
+                }
+            }
+        });
+    });
+</script>

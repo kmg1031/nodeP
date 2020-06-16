@@ -1,0 +1,32 @@
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>TIME</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(locals.loginLogList){ %>
+                <% 
+                    for(var i = 0; i < loginLogList.length; i++){ 
+                        var date = new Date(loginLogList[i].loginTime);
+
+                        var year = date.getFullYear();              
+                        var month = (1 + date.getMonth());          
+                        month = month >= 10 ? month : '0' + month;  
+                        var day = date.getDate();                   
+                        day = day >= 10 ? day : '0' + day;          
+                        var d = year + '/' + month + '/' + day;
+                %>
+                    <tr>
+                        <td><%=loginLogList[i].seq%></td>
+                        <td><%=loginLogList[i].userId%></td>
+                        <td><%= d %></td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+</div>

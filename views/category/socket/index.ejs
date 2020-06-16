@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<div id="socket_div">
+    <h4>SOCKET</h4>
+    <p>do it</p>
+</div>
+<div>
+    <!-- <textarea name="" id="chatLogs2" cols="30" rows="10"></textarea> -->
+
+    <div>
+      <form action="/socket/" id="form">
+        <input type="text" id="msgForm"><input type="submit" value="확인">
+      </form>
+    </div>
+</div>
+<div id="chatLogs" >
+</div id="chatLogs">
+<script>
+
+    $(function(){
+        
+      // socket.io 서버에 접속한다
+      var socket = io.connect('http://localhost:8080/');
+      socket.emit("connect",'hi1');
+
+      socket.emit("chat",'hi2');
+
+      // 서버로부터의 메시지가 수신되면
+      socket.on("chat", function(data) {
+        $("#chatLogs").append("<div>" + data.msg + "</div>");
+      });
+  
+      // Send 버튼이 클릭되면
+      $("form").submit(function(e) {
+        e.preventDefault();
+        
+        var $msgForm = $("#msgForm");
+  
+        console.log($msgForm.val());
+
+        // 서버로 메시지를 전송한다.
+        socket.emit("chat", { msg: $msgForm.val() });
+        $msgForm.val("");
+      });
+
+    });
+    </script>

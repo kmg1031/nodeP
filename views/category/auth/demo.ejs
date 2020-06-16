@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AUTH</title>
+</head>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/main.css" type="text/css">
+<script src="../socket.io-client/dist/socket.io.js"></script>
+
+<body>
+
+    <%- include('/NodeJS/views/header.ejs') -%>
+
+
+    <section>
+        <div class="contentBox" id="contentBox1">
+            <p>권한관리 였던 곳</p>
+        </div>
+        <div class="contentBox" id="contentBox2">
+            <% if(locals.sectionPath){ %>
+                <%- include(sectionPath) -%>
+            <% } %>
+        </div>
+        <div class="contentBox" id="contentBox3">
+            
+        </div>
+    </section>
+
+
+    <%- include('/NodeJS/views/footer.ejs') -%>
+
+</body>
+</html>

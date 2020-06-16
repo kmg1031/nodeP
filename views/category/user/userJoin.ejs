@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Billing address</h4>
+        <form class="needs-validation" action="/userCreate" id="addMember" method="POST">
+
+            <div class="mb-3">
+                <label for="userId">ID</label>
+                <input type="text" class="form-control" id="userId" name="userId" placeholder="ID" autofocus="">
+            </div>
+
+            <div class="mb-3">
+                <label for="userPw">PW</label>
+                <input type="password" class="form-control" id="userPw"  name="userPw" placeholder="Password">
+            </div>
+
+            <div class="mb-3">
+                <label for="userName">NAME</label>
+                <input type="text" class="form-control" id="userName" name="userName" placeholder="NAME">
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">create</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    $('#addMember').on('submit',function(e){
+        e.preventDefault();
+
+        if($('#userId').val() == ''){
+            alert('아이디를 입력해주세요.');
+        }
+        if($('#userPw').val() == ''){
+            alert('비밀번호를 입력해주세요.');
+        }
+        if($('#userName').val() == ''){
+            alert('이름을 입력해주세요.');
+        }
+
+        $.ajax({
+            url: '/user/userCreate',
+            type: 'POST',
+            dataType : 'json',
+            data: {
+                'userId' : $('#userId').val(),
+                'userPw' : $('#userPw').val(),
+                'userName' : $('#userName').val()
+            },
+            success: function(result) {
+                if(result.affectedRows > 0){
+                    alert('회원가입 성공!');
+                    window.location.href = '/login';
+                }else{
+                     alert('회원가입 실패.');
+                }
+            }
+        });
+    });
+</script>

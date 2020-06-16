@@ -12,9 +12,27 @@ module.exports = function(app){
 
     router.use(function(req,res,next){
         console.log('auth');
-        res.locals.sectionPath = 'category/auth/home.ejs';
+        res.locals.sectionPath = 'auth.ejs';
         next();
     });
+
+    // 권한 관리
+    router.use('/admin', function(req,res,next){
+        res.locals.sectionPath = 'auth.ejs';
+        next();
+    });
+    // 회원 가입
+    router.use('/createMember', function(req,res,next){
+        res.locals.sectionPath = 'createMember.ejs';
+        next();
+    });
+     // 데모
+     router.use('/demo', function(req,res,next){
+        res.locals.sectionPath = 'demo.ejs';
+        next();
+    });
+
+
 
     // 추가
     router.use('/insert', function(req,res){
@@ -66,7 +84,7 @@ module.exports = function(app){
 
     // home form
     router.use('/', function(req,res){
-        res.render('home',{});
+        res.render('category/auth/authMain',{});
     });
 
     return router;

@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<div>
+    <form action="/socket/" id="form">
+        <input type="text" id="msgForm"><input type="submit" value="확인">
+    </form>
+</div>
+<div id="chatLogs" >
+</div id="chatLogs">
+<script>
+
+    $(function(){
+        
+      // socket.io 서버에 접속한다
+      var socket = io();
+      // var socket = io('/my-namespace');
+  
+      // 서버로 자신의 정보를 전송한다.
+      socket.emit("login", {
+        name: makeRandomName(),
+        userid: "ungmo2@gmail.com"
+      });
+  
+      // 서버로부터의 메시지가 수신되면
+      socket.on("login", function(data) {
+        $("#chatLogs").append("<div><strong>" + data + "</strong> has joined</div>");
+      });
+  
+      // 서버로부터의 메시지가 수신되면
+      socket.on("chat", function(data) {
+        $("#chatLogs").append("<div>" + data.msg + " : from <strong>" + data.from.name + "</strong></div>");
+      });
+  
+      // Send 버튼이 클릭되면
+      $("form").submit(function(e) {
+        e.preventDefault();
+        var $msgForm = $("#msgForm");
+  
+        // 서버로 메시지를 전송한다.
+        socket.emit("chat", { msg: $msgForm.val() });
+        $msgForm.val("");
+      });
+  
+      function makeRandomName(){
+        var name = "";
+        var possible = "abcdefghijklmnopqrstuvwxyz";
+        for( var i = 0; i < 3; i++ ) {
+          name += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return name;
+      }
+    });
+    </script>

@@ -10,25 +10,21 @@ module.exports = function(app){
     var router = express.Router();
 
     router.use((req,res,next)=>{
-        console.log('canvas');
+        console.log('crawling');
         res.locals.subCategory = 'subCategory.ejs';
         res.locals.sectionPath = 'home.ejs';
-        res.locals.canvasSetting = 'canvasSetting.js';
         next();
     });
 
-    router.use('/canvas1',(req,res)=>{
-        res.locals.canvasJSPath = 'canvas1.js';
-        res.render('category/canvas/canvasMain.ejs',{});
+    router.use('/',(req,res)=>{
+        // res.locals.canvasJSPath = 'canvas1.js';
+        res.render('category/crawling/crawlingMain.ejs',{});
     });
-    router.use('/canvas2',(req,res)=>{
-        res.locals.canvasJSPath = 'canvas2.js';
-        res.render('category/canvas/canvasMain.ejs',{});
-    });
+
 
 
     router.use('/',(req,res)=>{
-        res.render('category/canvas/canvasMain.ejs',{});
+        res.render('category/crawling/crawlingMain.ejs',{});
     });
 
 

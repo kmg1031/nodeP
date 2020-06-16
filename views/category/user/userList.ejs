@@ -1,0 +1,22 @@
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>NAME</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(locals.userList){ %>
+                <% for(var i = 0; i < userList.length; i++){ %>
+                    <tr>
+                        <td><%=userList[i].seq%></td>
+                        <td><%=userList[i].userId%></td>
+                        <td><%=userList[i].userName%></td>
+                    </tr>
+                <% } %>
+            <% } %>
+        </tbody>
+    </table>
+</div>

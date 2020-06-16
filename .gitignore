@@ -5,3 +5,6 @@ views/test2.ejs
 node_modules/
 game/
 gameRouter.js
+routes/apiRouter.js
+css/
+새 폴더/

@@ -1,0 +1,38 @@
+<div>
+    <form action="/auth/addMember" id="addMember" method="POST">
+        <div><span>ID : </span><input type="text" id="userId" name="userId" placeholder="ID"></div>
+        <div><span>PW : </span><input type="password" id="userPw" name="userPw" placeholder="PASSWORD"></div>
+        <div><input type="submit" value="회원가입"></div>
+    </form>
+</div>
+<script>
+    $('#addMember').on('submit',function(e){
+        e.preventDefault();
+
+        if($('#userId').val() == ''){
+            alert('아이디를 입력해주세요.');
+        }
+        if($('#userPw').val() == ''){
+            alert('비밀번호를 입력해주세요.');
+        }
+
+        $.ajax({
+            url: 'auth/addMember',
+            type: 'POST',
+            dataType : 'json',
+            data: {
+                'userId' : $('#userId').val(),
+                'userPw' : $('#userPw').val()
+            },
+            success: function(result) {
+
+                if(result.result == 'success'){
+                    alert('회원가입 성공!');
+                    window.location.href = '/login';
+                }else{
+                     alert('회원가입 실패.');
+                }
+            }
+        });
+    });
+</script>
